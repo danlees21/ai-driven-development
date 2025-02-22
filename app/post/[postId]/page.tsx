@@ -10,14 +10,15 @@ import { mockPostDetails, mockComments } from '@/utils/mockData'
 import { Input } from "@/components/ui/input"
 import { formatDistanceToNow } from 'date-fns'
 import { ko } from 'date-fns/locale'
+import { IComment, IPostDetail } from '@/types'
 
 export default function PostDetail() {
   const params = useParams()
   const router = useRouter()
   const postId = params.postId as string
-  const [post, setPost] = useState(mockPostDetails[postId])
+  const [post, setPost] = useState<IPostDetail>(mockPostDetails[postId])
   const [isCommentOpen, setIsCommentOpen] = useState(false)
-  const [comments, setComments] = useState(mockComments[postId] || [])
+  const [comments, setComments] = useState<IComment[]>(mockComments[postId] || [])
   const [newComment, setNewComment] = useState("")
   const [showAllComments, setShowAllComments] = useState(false)
 

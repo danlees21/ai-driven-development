@@ -1,18 +1,11 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { IComment } from "@/types"
+import { IComment, ICommentModalProps } from "@/types"
 import Image from "next/image"
 import { useState } from "react"
 import { formatDistanceToNow } from 'date-fns'
 import { ko } from 'date-fns/locale'
-
-interface ICommentModalProps {
-  postId: string;
-  isOpen: boolean;
-  onClose: () => void;
-  comments: IComment[];
-}
 
 export default function CommentModal({ postId, isOpen, onClose, comments: initialComments }: ICommentModalProps) {
   const [newComment, setNewComment] = useState("")

@@ -1,4 +1,4 @@
-import { IPost } from "@/types"
+import { IPost, ICommunityFeedCardProps } from "@/types"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Heart, MessageCircle } from "lucide-react"
 import Image from "next/image"
@@ -7,10 +7,6 @@ import { useState } from "react"
 import { cn } from "@/lib/utils"
 import CommentModal from "./CommentModal"
 import { mockComments } from "@/utils/mockData"
-
-interface ICommunityFeedCardProps {
-  post: IPost
-}
 
 export default function CommunityFeedCard({ post: initialPost }: ICommunityFeedCardProps) {
   const [post, setPost] = useState(initialPost)

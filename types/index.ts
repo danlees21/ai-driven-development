@@ -38,4 +38,17 @@ export interface IPostDetail extends IPost {
   };
   scraps: number;
   isScrapped?: boolean;
+}
+
+// 커뮤니티 피드 카드 Props 인터페이스
+export interface ICommunityFeedCardProps {
+  post: IPost;
+}
+
+// 댓글 모달 Props 인터페이스
+export interface ICommentModalProps {
+  postId: string;
+  isOpen: boolean;
+  onClose: () => void;
+  comments: IComment[];
 } 
