@@ -51,4 +51,41 @@ export interface ICommentModalProps {
   isOpen: boolean;
   onClose: () => void;
   comments: IComment[];
+}
+
+export interface IStyleOption {
+  id: string;
+  category: 'color' | 'texture' | 'mood';
+  name: string;
+  value: string;
+  thumbnail?: string;
+}
+
+export interface IPromptInputWithStyle {
+  value: string;
+  onChange: (value: string) => void;
+  onSubmit: () => void;
+  isLoading: boolean;
+  styleOptions: IStyleOption[];
+  selectedStyles: string[];
+}
+
+export interface IStyleOptionSelector {
+  options: IStyleOption[];
+  selectedOptions: string[];
+  onOptionChange: (options: string[]) => void;
+  styleStrength: number;
+  onStrengthChange: (value: number) => void;
+}
+
+export interface IGeneratedImagePreview {
+  imageUrl?: string;
+  isLoading: boolean;
+  onRegenerate: () => void;
+  onSave: () => Promise<void>;
+}
+
+export interface IGeneratedImageActions {
+  imageUrl?: string;
+  onSave: () => Promise<void>;
 } 

@@ -1,21 +1,22 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import PromptInput from '@/components/PromptInput'
 import CommunityFeedCard from '@/components/CommunityFeedCard'
 import { mockPosts } from '@/utils/mockData'
 
 export default function Home() {
+  const router = useRouter()
   const [prompt, setPrompt] = useState('')
   const [isLoading, setIsLoading] = useState(false)
 
   const handleSubmit = () => {
     setIsLoading(true)
-    // 실제 API 연동 시 여기에 구현
-    setTimeout(() => {
-      setIsLoading(false)
-      // 이미지 생성 페이지로 이동
-    }, 1000)
+    
+    // URL 파라미터로 프롬프트 전달
+    const encodedPrompt = encodeURIComponent(prompt)
+    router.push(`/generate?prompt=${encodedPrompt}`)
   }
 
   return (
