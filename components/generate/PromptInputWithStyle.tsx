@@ -38,6 +38,7 @@ export default function PromptInputWithStyle({
         onChange={(e) => onChange(e.target.value)}
         placeholder="생성하고 싶은 이미지를 자세히 설명해주세요..."
         className="min-h-[150px]"
+        suppressHydrationWarning
       />
 
       <div className="flex justify-between items-center">
