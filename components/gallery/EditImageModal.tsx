@@ -97,6 +97,7 @@ export function EditImageModal({
               src={image.imageUrl}
               alt={image.prompt}
               fill
+              sizes="(max-width: 600px) 100vw, 600px"
               className="object-cover"
             />
           </div>

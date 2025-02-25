@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['picsum.photos', 'i.pravatar.cc'], // 외부 이미지 도메인 허용
+    domains: ['picsum.photos', 'i.pravatar.cc', 'replicate.delivery', 'replicate.com'], // 외부 이미지 도메인 허용
   },
   transpilePackages: ['date-fns'],
 }

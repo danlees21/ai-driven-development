@@ -53,9 +53,28 @@ export interface ICommentModalProps {
   comments: IComment[];
 }
 
+// 헤더 컴포넌트 Props 인터페이스
+export interface IHeaderProps {
+  variant?: 'default' | 'transparent';
+  className?: string;
+}
+
+// 내비게이션 링크 Props 인터페이스
+export interface INavLinkProps {
+  href: string;
+  children: React.ReactNode;
+  onClick?: () => void;
+}
+
+// 모바일 메뉴 Props 인터페이스
+export interface IMobileMenuProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
 export interface IStyleOption {
   id: string;
-  category: 'color' | 'texture' | 'mood';
+  category: 'color' | 'texture' | 'mood' | 'style' | 'pose';
   name: string;
   value: string;
   thumbnail?: string;
@@ -88,4 +107,41 @@ export interface IGeneratedImagePreview {
 export interface IGeneratedImageActions {
   imageUrl?: string;
   onSave: () => Promise<void>;
+}
+
+export interface IGenerationRequest {
+  prompt: string;
+  styleOptions: string[];
+  styleStrength: number;
+}
+
+export interface IGenerationResult {
+  imageUrl: string;
+  generationId: string;
+  prompt: string;
+  appliedStyles: IStyleOption[];
+}
+
+// Replicate API 응답 타입
+export interface IReplicateResponse {
+  id: string;
+  version: string;
+  urls: {
+    get: string;
+    cancel: string;
+  };
+  created_at: string;
+  started_at: string;
+  completed_at: string;
+  status: "starting" | "processing" | "succeeded" | "failed" | "canceled";
+  input: {
+    prompt: string;
+    [key: string]: any;
+  };
+  output: string[] | null;
+  error: string | null;
+  logs: string;
+  metrics: {
+    predict_time: number;
+  };
 } 
